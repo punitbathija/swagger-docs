@@ -38,6 +38,10 @@ app.get("/api/v1/appobject", (req, res) => {
   res.json(sampleJSON);
 });
 
+app.get("/api/v1/courses", (req, res) => {
+  res.send(courses);
+});
+
 app.listen(PORT, () => {
   console.log(`App is tuning on Port ${PORT}`);
 });
