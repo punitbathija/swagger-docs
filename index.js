@@ -6,6 +6,7 @@ const swaggerDocument = YAML.load("./swagger.yaml");
 const PORT = 4000;
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use(express.json());
 
 let courses = [
   {
@@ -46,6 +47,12 @@ app.get("/api/v1/mycourse/:courseId", (req, res) => {
   const mycourse = courses.find((course) => course.id === req.params.courseId);
   res.send(mycourse);
 }); //
+
+app.post("/api/v1/addCourse", (req, res) => {
+  console.log(req.body);
+  courses.push(req.body);
+  res.status(200).send(true, "data was added");
+});
 
 app.listen(PORT, () => {
   console.log(`App is tuning on Port ${PORT}`);

@@ -140,3 +140,40 @@ paths:
           description: Bad Request
         500:
           description: Internal server error
+
+  /addCourse:
+    post:
+      tags:
+        - String
+      summary: add's new course to your courses
+      consumes:
+        - application/json
+      produces:
+        - application/json
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                price:
+                  type: number
+
+      responses:
+        200:
+          description: All went well Success!
+        content:
+          application/json:
+            schema:
+              type: boolean
+
+        400:
+          description: Bad Request
+        500:
+          description: Internal server error
