@@ -21,10 +21,12 @@ servers:
         enum:
           - v1
           - v2
+        default: v1
       protocol:
         enum:
           - http
           - https
+        default: http
 
 components:
   securitySchemes:
@@ -50,6 +52,31 @@ paths:
               schema:
                 type: string
                 example: "my app"
+        400:
+          description: Bad Request
+        500:
+          description: Internal server error
+
+  /appobject:
+    get:
+      tags:
+        - Object
+      summary: returns an unique course
+      responses:
+        200:
+          description: All went well Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  price:
+                    type: number
+
         400:
           description: Bad Request
         500:

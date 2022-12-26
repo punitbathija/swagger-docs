@@ -29,9 +29,14 @@ app.get("/api/v1/app", (req, res) => {
   res.send("Hello From Punit's App");
 });
 
-// app.get("", (req, res) => {
-//   res.send("");
-// });
+app.get("/api/v1/appobject", (req, res) => {
+  const sampleJSON = {
+    id: "55",
+    name: "learn Backed",
+    price: "999",
+  };
+  res.json(sampleJSON);
+});
 
 app.listen(PORT, () => {
   console.log(`App is tuning on Port ${PORT}`);
