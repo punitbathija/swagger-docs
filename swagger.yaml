@@ -35,3 +35,22 @@ components:
     BearerAuth:
       type: http
       scheme: bearer
+
+paths:
+  /app:
+    get:
+      tags:
+        - String
+      summary: returns greeting message from the admin
+      responses:
+        200:
+          description: All went well Success!
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "my app"
+        400:
+          description: Bad Request
+        500:
+          description: Internal server error
