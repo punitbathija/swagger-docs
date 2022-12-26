@@ -27,7 +27,7 @@ let courses = [
 
 app.get("/api/v1/app", (req, res) => {
   res.send("Hello From Punit's App");
-});
+}); // sending string
 
 app.get("/api/v1/appobject", (req, res) => {
   const sampleJSON = {
@@ -36,11 +36,16 @@ app.get("/api/v1/appobject", (req, res) => {
     price: "999",
   };
   res.json(sampleJSON);
-});
+}); // sending object
 
 app.get("/api/v1/courses", (req, res) => {
   res.send(courses);
-});
+}); // sending array
+
+app.get("/api/v1/mycourse/:courseId", (req, res) => {
+  const mycourse = courses.find((course) => course.id === req.params.courseId);
+  res.send(mycourse);
+}); //
 
 app.listen(PORT, () => {
   console.log(`App is tuning on Port ${PORT}`);
