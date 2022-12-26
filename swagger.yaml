@@ -1,0 +1,37 @@
+openapi: "3.0.0"
+info:
+  title: learning express and swagger
+  description: Becoming a backend pro developer
+  version: 1.1.0
+  contact:
+    email: punit644@gmail.com
+    url: "https://punit-bathija.netlify.app"
+
+# servers:
+#   - url: "https://localhost:4000/api/v1"
+#     description: for local host - secured
+#   - url: "http://localhost:4000/api/v1"
+#     description: for local host - unsecured
+
+servers:
+  - url: "{protocol}://localhost:4000/api/{version}"
+    description: for local host
+    variables:
+      version:
+        enum:
+          - v1
+          - v2
+      protocol:
+        enum:
+          - http
+          - https
+
+components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+    BearerAuth:
+      type: http
+      scheme: bearer

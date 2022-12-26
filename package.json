@@ -1,0 +1,17 @@
+{
+  "name": "swagger-docs",
+  "version": "1.0.0",
+  "description": "this is the swagger tutorial from lco pro backend develeoper",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Punit Bathija",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "swagger-ui-express": "^4.6.0",
+    "yamljs": "^0.3.0"
+  }
+}
