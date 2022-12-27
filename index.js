@@ -4,9 +4,11 @@ const swaggerUI = require("swagger-ui-express");
 const YAML = require("yamljs");
 const swaggerDocument = YAML.load("./swagger.yaml");
 const PORT = 4000;
+const fileUpload = require("express-fileupload");
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use(express.json());
+app.use(fileUpload());
 
 let courses = [
   {
@@ -61,6 +63,15 @@ app.get("/api/v1/courseQuery", (req, res) => {
   let age = req.query.age;
   let gender = req.query.gender;
   res.send({ location, device, name, age, gender });
+});
+
+app.post("/api/v1/coursesUpload", (req, res) => {
+  const file = req.files.file;
+  const path = __dirname + "/images" + Date.now() + ".jpg";
+
+  file.mv(path, (err) => {
+    res.send(true);
+  });
 });
 
 app.listen(PORT, () => {
