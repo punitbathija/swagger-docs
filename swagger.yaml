@@ -150,7 +150,6 @@ paths:
         - application/json
       produces:
         - application/json
-
       requestBody:
         required: true
         content:
@@ -164,15 +163,13 @@ paths:
                   type: string
                 price:
                   type: number
-
       responses:
         200:
           description: All went well Success!
-        content:
-          application/json:
-            schema:
-              type: boolean
-
+          content:
+            application/json:
+              schema:
+                type: boolean
         400:
           description: Bad Request
         500:

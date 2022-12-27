@@ -51,7 +51,7 @@ app.get("/api/v1/mycourse/:courseId", (req, res) => {
 app.post("/api/v1/addCourse", (req, res) => {
   console.log(req.body);
   courses.push(req.body);
-  res.status(200).send(true, "data was added");
+  res.send(true);
 });
 
 app.listen(PORT, () => {
