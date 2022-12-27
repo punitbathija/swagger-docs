@@ -54,6 +54,15 @@ app.post("/api/v1/addCourse", (req, res) => {
   res.send(true);
 });
 
+app.get("/api/v1/courseQuery", (req, res) => {
+  let location = req.query.location;
+  let device = req.query.device;
+  let name = req.query.name;
+  let age = req.query.age;
+  let gender = req.query.gender;
+  res.send({ location, device, name, age, gender });
+});
+
 app.listen(PORT, () => {
   console.log(`App is tuning on Port ${PORT}`);
 });
